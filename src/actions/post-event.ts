@@ -12,7 +12,6 @@ export const postEvent = async (values: z.infer<typeof NewEventSchema>) => {
     return { error: "Wrong values" };
   }
   const { title, person, date, category, description } = validatedFields.data;
-  console.log(formatISO(date));
 
   const eventValues = await prisma.event.create({
     data: {

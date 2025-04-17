@@ -42,7 +42,7 @@ export type EventDataBis = {
   id: string;
   title: string;
   person: string;
-  date: Date;
+  datetime: string;
   category: string;
   description: string;
 };
@@ -57,7 +57,7 @@ const EditEventForm = ({ event }: { event: EventDataBis }) => {
     defaultValues: {
       title: event.title,
       person: event.person,
-      date: event.date,
+      date: new Date(event.datetime),
       category: event.category,
       description: event.description,
     },

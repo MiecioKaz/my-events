@@ -3,6 +3,7 @@
 import * as z from "zod";
 import { NewEventSchema } from "@/schemas";
 import prisma from "@/lib/db";
+import { formatISO } from "date-fns";
 
 export const editEvent = async (
   values: z.infer<typeof NewEventSchema>,
@@ -20,7 +21,7 @@ export const editEvent = async (
     data: {
       title,
       person,
-      date,
+      datetime: formatISO(date),
       category,
       description,
       period: "future",
