@@ -3,6 +3,7 @@
 import * as z from "zod";
 import { NewEventSchema } from "@/schemas";
 import prisma from "@/lib/db";
+import { formatISO } from "date-fns";
 
 export const postEvent = async (values: z.infer<typeof NewEventSchema>) => {
   const validatedFields = NewEventSchema.safeParse(values);
@@ -11,12 +12,13 @@ export const postEvent = async (values: z.infer<typeof NewEventSchema>) => {
     return { error: "Wrong values" };
   }
   const { title, person, date, category, description } = validatedFields.data;
+  console.log(formatISO(date));
 
   const eventValues = await prisma.event.create({
     data: {
       title,
       person,
-      date,
+      datetime: formatISO(date),
       category,
       description,
       period: "future",

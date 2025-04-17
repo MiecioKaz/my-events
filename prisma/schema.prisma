@@ -17,7 +17,7 @@ model Event {
   id             String        @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   person         String
-  date           DateTime
+  datetime       String
   category       String
   description    String
   period         String  

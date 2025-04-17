@@ -8,7 +8,7 @@ export type EventData = {
   id: string;
   title: string;
   person: string;
-  date: Date;
+  datetime: string;
   category: string;
   description: string;
   period: string;
@@ -28,14 +28,12 @@ const EventsPage = async () => {
   const futureEvents = events.filter((item) => item.period === "future");
   futureEvents.sort(
     (firstEvent, secondEvent) =>
-      Date.parse(firstEvent.date.toString()) -
-      Date.parse(secondEvent.date.toString())
+      Date.parse(firstEvent.datetime) - Date.parse(secondEvent.datetime)
   );
   const pastEvents = events.filter((item) => item.period === "past");
   pastEvents.sort(
     (firstEvent, secondEvent) =>
-      Date.parse(firstEvent.date.toString()) -
-      Date.parse(secondEvent.date.toString())
+      Date.parse(firstEvent.datetime) - Date.parse(secondEvent.datetime)
   );
 
   return (

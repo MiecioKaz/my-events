@@ -21,7 +21,7 @@ const DetailsBasicPage = async ({
         <h1 className="font-bold">{eventData.title}</h1>
 
         <p className="underline underline-offset-2">
-          {format(eventData.date, "PP")}
+          {format(eventData.datetime, "PP")}
         </p>
       </div>
       <h1 className="text-center font-bold mt-8">Details</h1>
