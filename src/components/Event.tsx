@@ -33,7 +33,8 @@ const Event = ({ event }: { event: EventData }) => {
   return (
     <div className="aspect-square bg-white dark:bg-slate-100 rounded-lg shadow-md grid grid-cols-2 content-between p-2">
       <div className="place-self-start text-nowrap underline underline-offset-2 text-fuchsia-950">
-        {format(event.datetime, "PP")}
+        {/* {format(event.datetime, "PP")} */}
+        {event.datetime.slice(0, 10)}
       </div>
       <Link
         href={`/events/details/${event.id}`}
