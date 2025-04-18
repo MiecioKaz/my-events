@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import type { EventData } from "@/app/events/page";
-import { format } from "date-fns";
+import DateDisplay from "./DateDisplay";
 import prisma from "@/lib/db";
 
 const Event = ({ event }: { event: EventData }) => {
@@ -32,9 +32,12 @@ const Event = ({ event }: { event: EventData }) => {
 
   return (
     <div className="aspect-square bg-white dark:bg-slate-100 rounded-lg shadow-md grid grid-cols-2 content-between p-2">
-      <div className="place-self-start text-nowrap underline underline-offset-2 text-fuchsia-950">
-        {/* {format(event.datetime, "PP")} */}
+      {/* <div className="place-self-start text-nowrap underline underline-offset-2 text-fuchsia-950">
+        {format(event.datetime, "PP")}
         {event.datetime.slice(0, 10)}
+      </div> */}
+      <div className="place-self-start">
+        <DateDisplay datetime={event.datetime} />
       </div>
       <Link
         href={`/events/details/${event.id}`}
