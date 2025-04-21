@@ -1,6 +1,3 @@
-// The command to connect to json-server:
-// In separate terminal: npx json-server -w data/db.json -p 3500
-
 import Event from "@/components/Event";
 import prisma from "@/lib/db";
 

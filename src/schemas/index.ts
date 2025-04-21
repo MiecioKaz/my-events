@@ -7,9 +7,6 @@ export const NewEventSchema = z.object({
   person: z.string().min(1, {
     message: "Name of person required",
   }),
-  // date: z.string().date().min(1, {
-  //   message: "Please select a date",
-  // }),
   date: z.date().min(new Date("2000-01-01"), { message: "Date is required" }),
   category: z.string().min(1, {
     message: "Event category required",
